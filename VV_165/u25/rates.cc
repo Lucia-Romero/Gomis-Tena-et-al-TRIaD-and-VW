@@ -45,7 +45,7 @@ void human::rates(int x)
 	tjsp = 1.46 * tjs; //Wagner says 1.46 slower recovery with CaMKIIdc overexpression
 
 	mLss = 1.0 / (1.0 + exp((-(p->v + 42.85)) / 5.264));
-	tmL = tm; /* Lucia 18-July-2011: It was: tmL=0.1146+1/(17.67*exp((p->v+22.08)/14.13)+2.532*exp((-(p->v+70.84))/9.930));  but it was wrong*/
+	tmL = tm; 
 	hLss = 1.0 / (1.0 + exp((p->v + 87.61) / 7.488));
 	thL = 200.0;
 	hLssp = 1.0 / (1.0 + exp((p->v + 87.61 + 6.2) / 7.488)); //Wagner says 6.2 mV left shift with CaMKIIdc overexpression
@@ -122,29 +122,29 @@ void human::rates(int x)
 	Axrf = 1.0 / (1.0 + exp((p->v + 54.81) / 38.21));
 	Axrs = 1.0 - Axrf;
 
-	/* Lucia 18-July-2011*/
+	
 
-	a_IKr=	exp( 24.335 + (  0.0112 * p->v - 25.914 ));  			/* Lucia 9-July-2011: it was  a = exp(24.335+0.0112*v-25.914); but "a" was changed by "a_IKr" as there is another variable called "a"*/
+	a_IKr=	exp( 24.335 + (  0.0112 * p->v - 25.914 ));  			
 	be=		exp( 13.688 + ( -0.0603 * p->v - 15.707 ));  
 
-	ain=	exp( 22.746 + ( -25.914 ));					/* Lucia 18-August-2010 In Fink IKr COR formulation it is called:alpha_xr2 */
-	bin=	exp( 13.193 + ( -15.707 ));					/*Lucia 18-August-2010 In Fink IKr COR formulation it is called: beta_xr2 */ 
+	ain=	exp( 22.746 + ( -25.914 ));					
+	bin=	exp( 13.193 + ( -15.707 ));					 
 
-	aa=	exp( 22.098 + (  0.0365 * p->v - 25.914 ));                  	/* Lucia 18-August-2010 In Fink IKr COR formulation it is called: alpha_xr3 */ 
-	bb=	exp(  7.313 + ( -0.0399 * p->v - 15.707 ));                  	/* Lucia 18-August-2010 In Fink IKr COR formulation it is called: beta_xr3 */
+	aa=	exp( 22.098 + (  0.0365 * p->v - 25.914 ));                  	
+	bb=	exp(  7.313 + ( -0.0399 * p->v - 15.707 ));                  	
 
-	ai= 5.0*exp( 30.061 + ( -0.0312 * 1.2 * p->v - 33.243 ));     		/* Lucia 17-Sep-2010: IKr_parameters  (0=WT; 1=bix1.6738; 2=aix0_8_bix1_3369; 3=aix1_5_bix3_5)	LUCIA may-23*/
-	bi= 0.2*exp( 30.016 + (  0.0223 * p->v - 30.888 ))*pow((5.4/ko),0.4);	/* Lucia 18-August-2010 In Fink IKr COR formulation it is called: alpha_xr4	LUCIA may-23*/
+	ai= 5.0*exp( 30.061 + ( -0.0312 * 1.2 * p->v - 33.243 ));     		
+	bi= 0.2*exp( 30.016 + (  0.0223 * p->v - 30.888 ))*pow((5.4/ko),0.4);	
 
 	mu=0; 
 
 	dO_IKr     =     ai    * p->I_IKr  + aa   * p->C1_IKr   + rO_D      * p->O_IKr_D  - p->O_IKr  * ( bi + bb  + kO_D * Dofetilide);
-	dC1_IKr    =     ain   * p->C2_IKr + bb   * p->O_IKr    + rC_D      * p->C1_IKr_D - p->C1_IKr * ( aa + bin + kC_D * Dofetilide);   // Lucia 19-April-2013	
-	dC2_IKr    =     a_IKr * p->C3_IKr + bin  * p->C1_IKr   + rC_D      * p->C2_IKr_D - p->C2_IKr * ( be + ain + kC_D * Dofetilide);  	// Lucia 19-April-2013                  
-	dC3_IKr    =     be    * p->C2_IKr + rC_D * p->C3_IKr_D - p->C3_IKr *( a_IKr + kC_D * Dofetilide ); 								// Lucia 19-April-2013
+	dC1_IKr    =     ain   * p->C2_IKr + bb   * p->O_IKr    + rC_D      * p->C1_IKr_D - p->C1_IKr * ( aa + bin + kC_D * Dofetilide);  
+	dC2_IKr    =     a_IKr * p->C3_IKr + bin  * p->C1_IKr   + rC_D      * p->C2_IKr_D - p->C2_IKr * ( be + ain + kC_D * Dofetilide);  	                  
+	dC3_IKr    =     be    * p->C2_IKr + rC_D * p->C3_IKr_D - p->C3_IKr *( a_IKr + kC_D * Dofetilide ); 								
 	dI_IKr     =     bi    * p->O_IKr  + rI_D * p->I_IKr_D  - p->I_IKr  *( ai    + kI_D * Dofetilide ); 
 
-	//Reversibilidad // JULIO (abr-22)
+	
     
 	dO_IKr_D   =     ai    *(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) * p->I_IKr_D  + aa                                          * p->C1_IKr_D + kO_D * Dofetilide * p->O_IKr  - p->O_IKr_D  *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)+ rO_D);
 	dC1_IKr_D  =     ain                                           * p->C2_IKr_D + bb * (((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1) * p->O_IKr_D  + kC_D * Dofetilide * p->C1_IKr - p->C1_IKr_D *(aa + bin + rC_D);
@@ -152,7 +152,7 @@ void human::rates(int x)
 	dC3_IKr_D  =     be                                            * p->C2_IKr_D + kC_D * Dofetilide                           * p->C3_IKr   - p->C3_IKr_D * ( a_IKr + rC_D ); 
 	dI_IKr_D   =     bi                                            * p->O_IKr_D  + kI_D * Dofetilide                           * p->I_IKr    - p->I_IKr_D  * ( ai *(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D );		
 
-	/*Lucia hasta aquí*/
+	
 	
 
 	xs1ss = 1.0 / (1.0 + exp((-(p->v + 11.60)) / 8.932));
