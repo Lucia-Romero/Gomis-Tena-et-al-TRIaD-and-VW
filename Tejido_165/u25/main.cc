@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
         printf("./exe 9.999 9.999 6.292 4.790 6.292 6.635 2.60 1000 100 5000 0 \n");
         printf("./exe [pKc] [pRc] [pKo] [pRo] [pKi] [pRi] [pD] [CL] [N] [P] [Save]\n\n");
         printf("P: indica el periodo de grabacion, e.d. cada cuantos ms se debe guardar un pulso.\n");
-		printf("P=0 indica que solo se guarda el ultimo pulso (¡OJO! Obligatoriamente las simulaciones deben ser superiores a 1 pulso)\n\n");
+		printf("P=0 indica que solo se guarda el ultimo pulso (Â¡OJO! Obligatoriamente las simulaciones deben ser superiores a 1 pulso)\n\n");
 		printf("Save = 0 indica que la simulacion parte de cero            y NO guarda los valores finales\n");
 		printf("Save = 1 indica que la simulacion parte de cero            y SI guarda los valores finales\n");
 		printf("Save = 2 indica que la simulacion parte de valores previos y NO guarda los valores finales\n");
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		printf("BCL = %d ms\n",  (int)cell.CL);	
 		printf("N pulsos = %d\n",cell.beats);	
 		if(cell.beatssave!=0)	printf("Graba cada= %d ms\n",cell.beatssave);	
-		if( savemode > 3){ 		printf("Parametro Save ¡Incorrecto!\n\n"); return -1;}
+		if( savemode > 3){ 		printf("Parametro Save Â¡Incorrecto!\n\n"); return -1;}
 
 	/*
 	 * CELL STRAND DECLARATION
@@ -55,15 +55,15 @@ int main(int argc, char *argv[])
 	 */
 	for (int i = 0; i < cell.strandlength; i++) 
 	{
-		strncpy(stranddata[i].fcell_save_path, cell.fpth, sizeof(cell.fpth));  //JULIO
+		strncpy(stranddata[i].fcell_save_path, cell.fpth, sizeof(cell.fpth));  
 		
 		if((savemode == 2)||(savemode == 3))
 				stranddata[i].load(i + 1);
 		else
-				stranddata[i].init(i + 1, cell.CL, cell.endo, cell.M); //JORDI
+				stranddata[i].init(i + 1, cell.CL, cell.endo, cell.M); 
 	}
 
-	cell.save_heading(cell.strandlength);  //JULIO
+	cell.save_heading(cell.strandlength);  
 	cell.ecg_heading();
 
 	if (cell.stim_here > (cell.strandlength - 1)) {
@@ -99,22 +99,20 @@ int main(int argc, char *argv[])
 
 			if (i % cell.skip == 0 && cell.t > cell.CL
 					&& fmod(cell.t + cell.CL, cell.tsave) >= 0
-					&& fmod(cell.t + cell.CL, cell.tsave) <= cell.CL) { //cell.t>=cell.tsave) //JORDI
+					&& fmod(cell.t + cell.CL, cell.tsave) <= cell.CL) { //cell.t>=cell.tsave) 
 				cell.save(x, cell.strandlength);
 			}
 		}
 
-		/*
-		 * Sí, es muy redundante pero asegura que la condición se cumpla cada vez que se inicia un pulso a guardar.
-		 */
+
 		if (fmod(cell.t, cell.tsave) <= 1) {
 			cell.QTint = cell.CL;
 		}
 
 		if ( /*i%cell.skip==0 && */cell.t > cell.CL
 				&& fmod(cell.t + cell.CL, cell.tsave) >= 0
-				&& fmod(cell.t + cell.CL, cell.tsave) <= cell.CL) { //cell.t>=cell.tsave) //JORDI
-			cell.ecg_save(i); //JORDI
+				&& fmod(cell.t + cell.CL, cell.tsave) <= cell.CL) { //cell.t>=cell.tsave) 
+			cell.ecg_save(i); 
 		}
 
 		if (i % (500000 / cell.strandlength) == 0) {
@@ -128,7 +126,7 @@ int main(int argc, char *argv[])
 			break;
 		}
 
-		//Shouldn't this happen BEFORE saving all data? //JORDI
+		//Shouldn't this happen BEFORE saving all data? 
 		cell.t = cell.t + cell.dt;
 		i++;
 	}
@@ -139,7 +137,7 @@ int main(int argc, char *argv[])
 	 *
 	 ****************************************************************************************************************/
 
-	//guarda el estado de todas las células //JORDI
+	//guarda el estado de todas las cÃ©lulas 
 	if((savemode == 1)||(savemode == 3))
 	{
 		for (int i = 0; i < cell.strandlength; i++)
