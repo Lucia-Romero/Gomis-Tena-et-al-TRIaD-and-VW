@@ -30,12 +30,12 @@ public:
  
         double t, dt, ft;
         double TR_max;
-	double t_aplic_Dofet;/*Lucia 2-August-2011: to include dofetilide*/	
+	double t_aplic_Dofet;	
 	double tsave, QTint;
 	int strandlength;
 	double CL, start, amp, duration;
-        double extra_start; //JULIO
-        int extra_flag, extra_stim_here; //JULIO
+        double extra_start; 
+        int extra_flag, extra_stim_here; 
 	int beats, beatssave;
 	int n, stim_here, skip;
 	int save_flag;
@@ -77,10 +77,10 @@ public:
 	double Phi, gradV;
 	double tvdotmax_start, tvdotmax_end, CV;
 	
-	int Markov,IKr_parameters; 																	/*Lucia 18-July-2011: to include Fink model and mutations*/ 
-	double a_IKr,be,ai,ain,bin,bi,aa,bb,mu; 													/*Lucia 18-July-2011: to include Fink model and mutations*/ 
-	double dO_IKr,dC1_IKr,dC2_IKr,dC3_IKr,dI_IKr; 												/*Lucia 18-July-2011: to include Fink model and mutations*/ 
-	double dO_IKr_D,dC1_IKr_D,dC2_IKr_D,dC3_IKr_D,dI_IKr_D, Dofetilide,rO_D,rI_D,kO_D,kI_D; 	/*Lucia 2-August-2011: to include dofetilide*/  
-	double kC_D, rC_D;        																	/*Lucia 19-Abril-2013: for binding and unbinding in C */
+	int Markov,IKr_parameters; 																	 
+	double a_IKr,be,ai,ain,bin,bi,aa,bb,mu; 													 
+	double dO_IKr,dC1_IKr,dC2_IKr,dC3_IKr,dI_IKr; 												
+	double dO_IKr_D,dC1_IKr_D,dC2_IKr_D,dC3_IKr_D,dI_IKr_D, Dofetilide,rO_D,rI_D,kO_D,kI_D; 	 
+	double kC_D, rC_D;        																	
 	
 };
