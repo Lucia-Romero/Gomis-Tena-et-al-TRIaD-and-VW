@@ -70,21 +70,21 @@ void human::save(int x, int strandlength) {
 
 	if (x == 0 && save_flag == 0 && strandlength == 1) {
 		voltages = fopen(voltages_path, "w");
-		fprintf(voltages, "%-07g\t%-07g\n", t + 0.005, p->v); //JORDI add 0.005
+		fprintf(voltages, "%-07g\t%-07g\n", t + 0.005, p->v); 
 		fclose(voltages);
 		save_flag = 1;
 	} else if (x == 0 && save_flag == 1 && strandlength == 1) {
 		voltages = fopen(voltages_path, "a");
-		fprintf(voltages, "%-07g\t%-07g\n", t + 0.005, p->v); //JORDI add 0.005
+		fprintf(voltages, "%-07g\t%-07g\n", t + 0.005, p->v); 
 		fclose(voltages);
 	} else if (x == 0 && save_flag == 0) {
 		voltages = fopen(voltages_path, "w");
-		fprintf(voltages, "%-07g\t%-07g\t", t + 0.005, p->v); //JORDI add 0.005
+		fprintf(voltages, "%-07g\t%-07g\t", t + 0.005, p->v); 
 		fclose(voltages);
 		save_flag = 1;
 	} else if (x == 0 && save_flag == 1) {
 		voltages = fopen(voltages_path, "a");
-		fprintf(voltages, "%-07g\t%-07g\t", t + 0.005, p->v); //JORDI add 0.005
+		fprintf(voltages, "%-07g\t%-07g\t", t + 0.005, p->v); 
 		fclose(voltages);
 	} else if (x == (strandlength - 1)) {
 
@@ -112,10 +112,10 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(one); // JORDI ADD dt to t
+		fclose(one); 
 	}
 //else if (strandlength>=5 && here<=0.2 && there>0.2)
-	else if (strandlength >= 5 && here <= 0.18 && there > 0.18) { //JULIO
+	else if (strandlength >= 5 && here <= 0.18 && there > 0.18) { 
 		two = fopen(two_path, "a");
 		fprintf(two,
 				"%-012e\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\n",
@@ -124,10 +124,10 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(two); // JORDI ADD dt to t
+		fclose(two); 
 	}
 //else if (strandlength>=5 && here<=0.4 && there>0.4)
-	else if (strandlength >= 5 && here <= 0.5 && there > 0.5) {	//JULIO
+	else if (strandlength >= 5 && here <= 0.5 && there > 0.5) {	
 		three = fopen(three_path, "a");
 		fprintf(three,
 				"%-012e\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\n",
@@ -136,10 +136,10 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(three); // JORDI ADD dt to t
+		fclose(three); 
 	}
 //else if (strandlength>=5 && here<=0.6 && there>0.6)
-	else if (strandlength >= 5 && here <= 0.82 && there > 0.82) { //JULIO
+	else if (strandlength >= 5 && here <= 0.82 && there > 0.82) { 
 		four = fopen(four_path, "a");
 		fprintf(four,
 				"%-012e\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\n",
@@ -148,10 +148,10 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(four); // JORDI ADD dt to t
+		fclose(four); 
 	}
 
-	else if (strandlength >= 5 && here <= 0.99 && there > 0.99) { //JULIO
+	else if (strandlength >= 5 && here <= 0.99 && there > 0.99) { 
 		five = fopen(five_path, "a");
 		fprintf(five,
 				"%-012e\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\t%-07g\n",
@@ -160,7 +160,7 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(five); // JORDI ADD dt to t
+		fclose(five); 
 	}
 
 }
