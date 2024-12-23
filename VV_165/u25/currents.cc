@@ -40,9 +40,9 @@ void human::currents(int x) {
 	double PCaNap = 0.00125 * PCap;
 	double PCaKp = 3.574e-4 * PCap;
 
-	double 	GKr = 0.046 * 1.119  * 0.37397;	//LUCIA may-23
+	double 	GKr = 0.046 * 1.119  * 0.37397;	
 	if (Markov==1)				
-			GKr = 0.024 * 1.7575 * 1.119 * 0.37397;   	/* Lucia 18-July-2011*/
+			GKr = 0.024 * 1.7575 * 1.119 * 0.37397;   	
 	if (x > M) {
 		GKr *= 1.3;
 	} else if (x > endo) {
@@ -129,7 +129,7 @@ void human::currents(int x) {
 
 	IKr = GKr * xr * rkr * sqrt(ko / 5.4) * (p->v - EK); /* Lucia 18-July-2011: It was: IKr=GKr*xr*rkr*(p->v-EK);*/
 	
-	if (Markov==1) /* Lucía 18-July-2011: */
+	if (Markov==1) 
 	{
 		 IKr=GKr*sqrt(ko/5.4)*p->O_IKr*(p->v-EK);    
 	}
