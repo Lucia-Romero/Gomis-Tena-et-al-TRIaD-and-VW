@@ -2,7 +2,7 @@ class humandata {
 public:
 
 	humandata();
-	void init(int x, double CLin, int endoin, int Min); //JORDI
+	void init(int x, double CLin, int endoin, int Min);
 	void load(int x);
 	void saveCell();
 
@@ -22,6 +22,6 @@ public:
 	char fcell_save_path[250], cell_save_path[250];
 	double CL;
 	int endo, M;
-	double I_IKr, C3_IKr, C2_IKr, O_IKr, C1_IKr; 			/*Lucia 18-July-2011: To include Fink Markov */
-	double I_IKr_D, C3_IKr_D, C2_IKr_D, O_IKr_D, C1_IKr_D; 	/*Lucia 2-August-2011: To include drug in Fink Markov */
+	double I_IKr, C3_IKr, C2_IKr, O_IKr, C1_IKr; 			
+	double I_IKr_D, C3_IKr_D, C2_IKr_D, O_IKr_D, C1_IKr_D; 	
 };
