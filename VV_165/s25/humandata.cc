@@ -80,18 +80,18 @@ void humandata::load(int x) {
 	fcafp    = states[++i];
 	fcasp    = states[++i];
 
-	I_IKr    = states[++i];						/* Lucia 18-July-2011: To include IKr Fink formulation */
-	C3_IKr   = states[++i];						/* Lucia 18-July-2011: To include IKr Fink formulation */
-	C2_IKr   = states[++i];						/* Lucia 18-July-2011: To include IKr Fink formulation */
-	O_IKr    = states[++i];						/* Lucia 18-July-2011: To include IKr Fink formulation */									
-	C1_IKr   = states[++i]; 					/* Lucia 18-July-2011: To include IKr Fink formulation */									
+	I_IKr    = states[++i];						
+	C3_IKr   = states[++i];						
+	C2_IKr   = states[++i];						
+	O_IKr    = states[++i];															
+	C1_IKr   = states[++i]; 														
 
-												/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	I_IKr_D  = states[++i];						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	C3_IKr_D = states[++i];						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	C2_IKr_D = states[++i];						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	O_IKr_D  = states[++i];						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	C1_IKr_D = states[++i]; 					/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
+												
+	I_IKr_D  = states[++i];						
+	C3_IKr_D = states[++i];						
+	C2_IKr_D = states[++i];						
+	O_IKr_D  = states[++i];						
+	C1_IKr_D = states[++i]; 					
 	
 	vold     = states[++i];
 	vdot     = states[++i];
@@ -113,12 +113,12 @@ void humandata::load(int x) {
 
 extern char fpt[250];
 
-void humandata::init(int x, double CLin, int endoin, int Min) { //JORDI
+void humandata::init(int x, double CLin, int endoin, int Min) { 
 
 	sprintf(cell_save_path, "./cellstates/%s_%03d.txt", fcell_save_path, x);
 	//sprintf(cell_save_path, "./cellstates/Cell_%d.txt", x);
 
-	CL = CLin; //JORDI
+	CL = CLin; 
 
 	endo = endoin;
 	M = Min;
@@ -133,15 +133,15 @@ void humandata::init(int x, double CLin, int endoin, int Min) { //JORDI
 
 	ifstream statesin;
 	if (x > M) {
-		statesin.open(load_path_epi); // Cambio por comentario de Juanfran
+		statesin.open(load_path_epi); 
 	} else if (x > endo) {
 		statesin.open(load_path_M);
 	} else {
-		statesin.open(load_path_endo); // Cambio por comentario de Juanfran
+		statesin.open(load_path_endo); 
 	}
 
 	double states[54];
-	for (int i = 0; i < 54; i++) { //44 Cambio por Lucia
+	for (int i = 0; i < 54; i++) { 
 		statesin >> states[i];
 	}
 	statesin.close();
@@ -198,18 +198,18 @@ void humandata::init(int x, double CLin, int endoin, int Min) { //JORDI
 	fcafp    = states[++i];
 	fcasp    = states[++i];
 
-	I_IKr    = states[++i];// = 0;						/* Lucia 18-July-2011: To include IKr Fink formulation */
-	C3_IKr   = states[++i];// = 1;						/* Lucia 18-July-2011: To include IKr Fink formulation */
-	C2_IKr   = states[++i];// = 0;						/* Lucia 18-July-2011: To include IKr Fink formulation */
-	O_IKr    = states[++i];// = 0;						/* Lucia 18-July-2011: To include IKr Fink formulation */									
-	C1_IKr   = states[++i];// = 0; 						//Lucia 18-July-2011: It was: C1_IKr= 1-(I_IKr + C3_IKr + C2_IKr + O_IKr); 
+	I_IKr    = states[++i];// = 0;						
+	C3_IKr   = states[++i];// = 1;						
+	C2_IKr   = states[++i];// = 0;						
+	O_IKr    = states[++i];// = 0;															
+	C1_IKr   = states[++i];// = 0; 						 
 
-														/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	I_IKr_D  = states[++i];// = 0;						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	C3_IKr_D = states[++i];// = 0;						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	C2_IKr_D = states[++i];// = 0;						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	O_IKr_D  = states[++i];// = 0;						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-	C1_IKr_D = states[++i];// = 0; 						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
+														
+	I_IKr_D  = states[++i];// = 0;						
+	C3_IKr_D = states[++i];// = 0;						
+	C2_IKr_D = states[++i];// = 0;						
+	O_IKr_D  = states[++i];// = 0;						
+	C1_IKr_D = states[++i];// = 0; 						
 	
 	vold     = v;
 	vdot     = 0;
