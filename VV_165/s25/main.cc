@@ -54,12 +54,12 @@ int main(int argc, char *argv[])
         {
                 cell.extra_flag = 0;
 
-                strncpy(stranddata[i].fcell_save_path, cell.fpth, sizeof(cell.fpth));  //JULIO
+                strncpy(stranddata[i].fcell_save_path, cell.fpth, sizeof(cell.fpth));  
  
                 if((savemode == 2)||(savemode == 3))
                                 stranddata[i].load(i + 1);
                 else
-                                stranddata[i].init(i + 1, cell.CL, cell.endo, cell.M); //JORDI
+                                stranddata[i].init(i + 1, cell.CL, cell.endo, cell.M); 
         }
         i = 1;
         while (cell.t <= cell.ft) 
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
                                         && fmod(cell.t + cell.CL, cell.tsave) >= 0
                                         && fmod(cell.t + cell.CL, cell.tsave) <= cell.CL) 
                         { 
-                                  cell.save(x, cell.strandlength); //JULIO
+                                  cell.save(x, cell.strandlength); 
                         }
                 }
  
@@ -159,12 +159,12 @@ int main(int argc, char *argv[])
                 cell.extra_flag = 1;
 				cell.extra_start= (double) Ensayo;
 				
-                strncpy(stranddata[i].fcell_save_path, cell.fpth, sizeof(cell.fpth));  //JULIO
+                strncpy(stranddata[i].fcell_save_path, cell.fpth, sizeof(cell.fpth));  
  
                 if((savemode == 2)||(savemode == 3))
                                 stranddata[i].load(i + 1);
                 else
-                                stranddata[i].init(i + 1, cell.CL, cell.endo, cell.M); //JORDI
+                                stranddata[i].init(i + 1, cell.CL, cell.endo, cell.M); 
         }
         i = 1;
         while (cell.t <= cell.ft) 
@@ -198,7 +198,7 @@ int main(int argc, char *argv[])
                                         && fmod(cell.t + cell.CL, cell.tsave) >= 0
                                         && fmod(cell.t + cell.CL, cell.tsave) <= cell.CL) 
                         { 
-                                  cell.save(x, cell.strandlength); //JULIO
+                                  cell.save(x, cell.strandlength); 
                         }
                 }
  
@@ -314,12 +314,12 @@ int main(int argc, char *argv[])
                 cell.extra_flag = 1;
 				cell.extra_start= (double) Ensayo;
 				
-                strncpy(stranddata[i].fcell_save_path, cell.fpth, sizeof(cell.fpth));  //JULIO
+                strncpy(stranddata[i].fcell_save_path, cell.fpth, sizeof(cell.fpth));  
  
                 if((savemode == 2)||(savemode == 3))
                                 stranddata[i].load(i + 1);
                 else
-                                stranddata[i].init(i + 1, cell.CL, cell.endo, cell.M); //JORDI
+                                stranddata[i].init(i + 1, cell.CL, cell.endo, cell.M); 
         }
         i = 1;
         while (cell.t <= cell.ft) 
@@ -353,7 +353,7 @@ int main(int argc, char *argv[])
                                         && fmod(cell.t + cell.CL, cell.tsave) >= 0
                                         && fmod(cell.t + cell.CL, cell.tsave) <= cell.CL) 
                         { 
-                                  cell.save(x, cell.strandlength); //JULIO
+                                  cell.save(x, cell.strandlength); 
                         }
                 }
  
