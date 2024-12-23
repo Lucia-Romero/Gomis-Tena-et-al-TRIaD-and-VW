@@ -2,7 +2,7 @@ class humandata {
 public:
 
 	humandata();
-	void init(int x, double CLin, int endoin, int Min); //JORDI
+	void init(int x, double CLin, int endoin, int Min); 
 	void load(int x);
 	void saveCell();
 
