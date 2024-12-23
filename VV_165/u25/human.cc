@@ -22,7 +22,7 @@ human::human(char argv1[], char argv2[], char argv3[], char argv4[], char argv5[
 	beats     = atoi(argv9);
 	beatssave = atoi(argv10);
 
-	Markov = 1; 			   //Lucia 18-July-2011
+	Markov = 1; 			   
 
 	strandlength = 165;
 	stim_here = 0;
@@ -46,7 +46,7 @@ human::human(char argv1[], char argv2[], char argv3[], char argv4[], char argv5[
 
 	///////////ESTIMULO/////////////
 	start = 1.0;     // 1.0
-	amp = -200;      // JORDI -210
+	amp = -200;      
 	duration = 1.0;  // 1.0
 	////////////////////////////////
 
