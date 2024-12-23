@@ -55,7 +55,7 @@ void human::gates(int x) {
 	rkr = 1.0 / (1.0 + exp((p->v + 55.0) / 75.0)) * 1.0
 			/ (1.0 + exp((p->v - 10.0) / 30.0));
 
-	/* Lucia 18-July-2011: To include IKr Fink */
+
 	p->O_IKr     =  p->O_IKr     +  dt  *  dO_IKr;
 	p->C1_IKr    =  p->C1_IKr    +  dt  *  dC1_IKr;
 	p->C2_IKr    =  p->C2_IKr    +  dt  *  dC2_IKr;
@@ -67,7 +67,7 @@ void human::gates(int x) {
 	p->C2_IKr_D  =  p->C2_IKr_D  +  dt  *  dC2_IKr_D;
 	p->C3_IKr_D  =  p->C3_IKr_D  +  dt  *  dC3_IKr_D;
 	p->I_IKr_D   =  p->I_IKr_D   +  dt  *  dI_IKr_D;	
-	/* Lucia hasta aqui */
+
 
 	p->xs1 = xs1ss - (xs1ss - p->xs1) * exp(-dt / txs1);
 	p->xs2 = xs2ss - (xs2ss - p->xs2) * exp(-dt / txs2);
