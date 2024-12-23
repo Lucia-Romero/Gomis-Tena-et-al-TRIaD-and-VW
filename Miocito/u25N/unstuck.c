@@ -56,7 +56,7 @@ double beats = 2000;
 double ft = 110 * CL;  //final time
 int skip = 10; //number of timesetps to skip in sampling of data in output file
 double safetime = 25.0; //time from the beginning of each beat during which dt is fixed to small values
-double savePeriod = 3000; //O'HARA : number of beats to save in the output // JORDI: time in ms between saved beats.
+double savePeriod = 3000; //O'HARA : number of beats to save in the output 
 
 int loadStatesFromFile = 0;
 
@@ -210,9 +210,9 @@ double Jrel, Jup, Jtr, Jdiff, JdiffNa, JdiffK, Jleak;
 double CaMKa, CaMKb;
 
 //introduce APD, timing, and counting parameters
-int    APD30_flag = 0; 	//JULIO
-double APD30;	    	//JULIO
-double vmax = v;		//JULIO
+int    APD30_flag = 0; 	
+double APD30;	    	
+double vmax = v;		
 
 int APD_flag = 0;
 double APD;
@@ -326,9 +326,9 @@ int main(int argc, char *argv[]) {
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	timetoblock = 0; //manually initialise time when block starts. //JORDI
+	timetoblock = 0; //manually initialise time when block starts. 
 	timetoblock2 = timetoblock; // set delay on IKr and IKs block if different.
-	timetosave = beats * CL - savePeriod; //0; //manually set time after which the simulations will be saved. //JORDI
+	timetosave = beats * CL - savePeriod; //0; //manually set time after which the simulations will be saved. 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*****************************************************************************************************************************
@@ -440,7 +440,7 @@ int main(int argc, char *argv[]) {
 		statesStream >> C1_drug;
 		C1 = 1 -(I_ + C3 + C2 + O + I_drug + C3_drug + C2_drug + O_drug + C1_drug);
 
-		//cargar el tiempo al que se guardó la simulación
+		//cargar el tiempo al que se guardÃ³ la simulaciÃ³n
 		statesStream >> t;
 		statesStream >> cnt;
 		statesStream >> n;
@@ -576,12 +576,12 @@ end:
 
 	
 	/**
-	 * Method for saving final states. //JORDI
+	 * Method for saving final states. 
 	 */
 
 	if((loadStatesFromFile&1) == 1) {
 		fprintf(StatesFile,
-						"%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n"//10 por línea de texto, un parámetro por línea de archivo de salida
+						"%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n"//10 por lÃ­nea de texto, un parÃ¡metro por lÃ­nea de archivo de salida
 						"%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n"
 						"%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n"
 						"%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n%g\n"
@@ -841,15 +841,15 @@ void RGC() {
 	ICaL =  ((1.0 - fICaLp) * PCa * PhiCaL * d * 1.018				  /*Dutta GCaL*1.018 */
 					* (f * (1.0 - nca) + jca * fca * nca)
 					+ fICaLp * PCap * PhiCaL * d
-							* (fp * (1.0 - nca) + jca * fcap * nca)); //JULIO //JORDI
+							* (fp * (1.0 - nca) + jca * fcap * nca));  
 	ICaNa = ((1.0 - fICaLp) * PCaNa * PhiCaNa * d
 					* (f * (1.0 - nca) + jca * fca * nca)
 					+ fICaLp * PCaNap * PhiCaNa * d
-							* (fp * (1.0 - nca) + jca * fcap * nca)); //JORDI
+							* (fp * (1.0 - nca) + jca * fcap * nca)); 
 	ICaK =  ((1.0 - fICaLp) * PCaK * PhiCaK * d
 					* (f * (1.0 - nca) + jca * fca * nca)
 					+ fICaLp * PCaKp * PhiCaK * d
-							* (fp * (1.0 - nca) + jca * fcap * nca)); //JORDI
+							* (fp * (1.0 - nca) + jca * fcap * nca)); 
 
 	double xrss = 1.0 / (1.0 + exp((-(v + 8.337)) / 6.789));
 	double txrf = 12.98
@@ -872,17 +872,17 @@ void RGC() {
 	 *                                               POTASSIUM HERG CURRENT HERE
 	 *
 	 *****************************************************************************************************************************/		
-    // Markov IKr from Lucia
+    // Markov IKr 
 	double sum2;
     hh = dt;
      
     
     ae  =  exp( 24.335 + (  0.0112 * v - 25.914 )); 
     be  =  exp( 13.688 + ( -0.0603 * v - 15.707 ));
-    ai  =  exp( 30.061 + ( -0.0312 * 1.2 * v - 33.243 ));               		ai = ai * 5.0; //LUCIA may-23
+    ai  =  exp( 30.061 + ( -0.0312 * 1.2 * v - 33.243 ));               		ai = ai * 5.0; 
     ain =  exp( 22.746 + ( -25.914 ));
 	bin =  exp( 13.193 + ( -15.707 ));
-    bi  =  exp( 30.016 + (   0.0223* v - 30.888 ))*pow( (5.4/ko), 0.4); 		bi = bi / 5.0; //LUCIA may-23
+    bi  =  exp( 30.016 + (   0.0223* v - 30.888 ))*pow( (5.4/ko), 0.4); 		bi = bi / 5.0; 
     aa  =  exp( 22.098 + (   0.0365* v - 25.914 ));
     bb  =  exp( 7.3130 + (  -0.0399* v - 15.707 ));
     mu  =  0;
@@ -894,11 +894,11 @@ void RGC() {
     k1_C3      = hh*(be*C2           + rC_D*C3_drug - C3*(ae       + kC_D*Drug));
     k1_I       = hh*(bi*O            + rI_D*I_drug  - I_*(ai       + kI_D*Drug)); 				
 
-    k1_O_drug  = hh*(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1)*I_drug   + aa*C1_drug  + kO_D*Drug*O  - O_drug *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)  + rO_D)); //JULIO  ai, bb
-    k1_C1_drug = hh*(ain*C2_drug + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)*O_drug   + kC_D*Drug*C1 - C1_drug*(aa + bin + rC_D));   //JULIO  bb
+    k1_O_drug  = hh*(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1)*I_drug   + aa*C1_drug  + kO_D*Drug*O  - O_drug *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)  + rO_D));   ai, bb
+    k1_C1_drug = hh*(ain*C2_drug + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)*O_drug   + kC_D*Drug*C1 - C1_drug*(aa + bin + rC_D));     bb
     k1_C2_drug = hh*(ae*C3_drug  + bin*C1_drug + kC_D*Drug*C2 - C2_drug*(be + ain + rC_D));
     k1_C3_drug = hh*(be*C2_drug                + kC_D*Drug*C3 - C3_drug*(ae       + rC_D));
-    k1_I_drug  = hh*(bi*O_drug                 + kI_D*Drug*I_ - I_drug *(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D)); // JULIO ai
+    k1_I_drug  = hh*(bi*O_drug                 + kI_D*Drug*I_ - I_drug *(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D));  ai
     
     O_k1  = O  + k1_O/2;
     C1_k1 = C1 + k1_C1/2;
@@ -918,11 +918,11 @@ void RGC() {
     k2_C3      = hh*(be *C2_k1             + rC_D*C3_drug_k1 - C3_k1*(ae       + kC_D*Drug));
     k2_I       = hh*(bi *O_k1              + rI_D*I_drug_k1  - I_k1 *(ai       + kI_D*Drug)); 				
 
-    k2_O_drug  = hh*(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1)*I_drug_k1   + aa*C1_drug_k1  + kO_D*Drug*O_k1  - O_drug_k1 *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)+rO_D)); //JULIO ai, bb
-    k2_C1_drug = hh*(ain*C2_drug_k1 + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)*O_drug_k1   + kC_D*Drug*C1_k1 - C1_drug_k1*(aa + bin + rC_D)); //JULIO  bb
+    k2_O_drug  = hh*(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1)*I_drug_k1   + aa*C1_drug_k1  + kO_D*Drug*O_k1  - O_drug_k1 *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)+rO_D));  ai, bb
+    k2_C1_drug = hh*(ain*C2_drug_k1 + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)*O_drug_k1   + kC_D*Drug*C1_k1 - C1_drug_k1*(aa + bin + rC_D));   bb
     k2_C2_drug = hh*(ae*C3_drug_k1  + bin*C1_drug_k1 + kC_D*Drug*C2_k1 - C2_drug_k1*(be + ain + rC_D)); 
     k2_C3_drug = hh*(be*C2_drug_k1                   + kC_D*Drug*C3_k1 - C3_drug_k1*(ae  + rC_D));
-    k2_I_drug  = hh*(bi*O_drug_k1                    + kI_D*Drug*I_k1  - I_drug_k1 *(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D)); // JULIO ai 
+    k2_I_drug  = hh*(bi*O_drug_k1                    + kI_D*Drug*I_k1  - I_drug_k1 *(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D));  ai 
 		
     O_k2  = O  + k2_O/2;
     C1_k2 = C1 + k2_C1/2;
@@ -942,11 +942,11 @@ void RGC() {
     k3_C3      = hh*(be *C2_k2             + rC_D*C3_drug_k2 - C3_k2*(ae       + kC_D*Drug));  
     k3_I       = hh*(bi *O_k2              + rI_D*I_drug_k2  - I_k2 *(ai       + kI_D*Drug)); 
     
-    k3_O_drug  = hh*(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1)*I_drug_k2   + aa*C1_drug_k2  + kO_D*Drug*O_k2 - O_drug_k2 *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)+rO_D)); // JULIO ai, bb
-    k3_C1_drug = hh*(ain*C2_drug_k2 + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)*O_drug_k2   + kC_D*Drug*C1_k2 - C1_drug_k2*(aa + bin + rC_D)); //JULIO  bb
+    k3_O_drug  = hh*(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1)*I_drug_k2   + aa*C1_drug_k2  + kO_D*Drug*O_k2 - O_drug_k2 *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)+rO_D));  ai, bb
+    k3_C1_drug = hh*(ain*C2_drug_k2 + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)*O_drug_k2   + kC_D*Drug*C1_k2 - C1_drug_k2*(aa + bin + rC_D));   bb
     k3_C2_drug = hh*(ae *C3_drug_k2  + bin*C1_drug_k2 + kC_D*Drug*C2_k2 - C2_drug_k2*(be + ain + rC_D)); 
     k3_C3_drug = hh*(be *C2_drug_k2                   + kC_D*Drug*C3_k2 - C3_drug_k2*(ae       + rC_D)); 
-    k3_I_drug  = hh*(bi *O_drug_k2                    + kI_D*Drug*I_k2  - I_drug_k2 *(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D)); //JULIO ai 
+    k3_I_drug  = hh*(bi *O_drug_k2                    + kI_D*Drug*I_k2  - I_drug_k2 *(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D));  ai 
 
     O_k3  = O  + k3_O;
     C1_k3 = C1 + k3_C1;
@@ -966,11 +966,11 @@ void RGC() {
     k4_C3      = hh*(be *C2_k3             + rC_D*C3_drug_k3 - C3_k3*(ae       + kC_D*Drug));
     k4_I       = hh*(bi *O_k3              + rI_D*I_drug_k3  - I_k3 *(ai       + kI_D*Drug));
     
-    k4_O_drug  = hh*(ai *(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1)*I_drug_k3   + aa*C1_drug_k3  + kO_D*Drug*O_k3 - O_drug_k3 *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)+ rO_D)); //JULIO ai, bb
-    k4_C1_drug = hh*(ain*C2_drug_k3 + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)*O_drug_k3   + kC_D*Drug*C1_k3 - C1_drug_k3*(aa + bin + rC_D)); //JULIO  bb
+    k4_O_drug  = hh*(ai *(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1)*I_drug_k3   + aa*C1_drug_k3  + kO_D*Drug*O_k3 - O_drug_k3 *(bi + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)+ rO_D));  ai, bb
+    k4_C1_drug = hh*(ain*C2_drug_k3 + bb*(((rC_D!=0)&&(rO_D!=0))?(rO_D/rC_D):1)*O_drug_k3   + kC_D*Drug*C1_k3 - C1_drug_k3*(aa + bin + rC_D));   bb
     k4_C2_drug = hh*(ae *C3_drug_k3 + bin*C1_drug_k3 + kC_D*Drug*C2_k3 - C2_drug_k3*(be + ain + rC_D));  
     k4_C3_drug = hh*(be *C2_drug_k3                  + kC_D*Drug*C3_k3 - C3_drug_k3*(ae       + rC_D));
-    k4_I_drug  = hh*(bi *O_drug_k3                   + kI_D*Drug*I_k3  - I_drug_k3 *(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D)); //JULIO ai
+    k4_I_drug  = hh*(bi *O_drug_k3                   + kI_D*Drug*I_k3  - I_drug_k3 *(ai*(((rO_D!=0)&&(rI_D!=0))?(rI_D/rO_D):1) + rI_D));  ai
     
     O  = O  + (k1_O  + 2*k2_O  + 2*k3_O  + k4_O )/6;
     C1 = C1 + (k1_C1 + 2*k2_C1 + 2*k3_C1 + k4_C1)/6;
@@ -988,7 +988,7 @@ void RGC() {
     
 	if (fabs (sum2 -1.0) > 0.001) {cout << "Error in Sum at t = " << t << endl;}
 	
-	double 	GKr = 0.024 * 1.7575 * 1.119 * 0.37397;  /*Dutta GKr*1.119	LUCIA may-23 *0.35 */
+	double 	GKr = 0.024 * 1.7575 * 1.119 * 0.37397;  /*Dutta GKr*1.119	 */
 		
 		if (celltype == 1)
 		{
@@ -1024,7 +1024,7 @@ void RGC() {
 	 *                                               POTASSIUM SLOW CURRENT HERE
 	 *
 	 *****************************************************************************************************************************/
-	IKs = GKs * KsCa * xs1 * xs2 * (v - EKs); //JULIO
+	IKs = GKs * KsCa * xs1 * xs2 * (v - EKs); 
 
 	double xk1ss = 1.0
 			/ (1.0 + exp(-(v + 2.5538 * ko + 144.59) / (1.5692 * ko + 3.8115)));
@@ -1227,11 +1227,11 @@ void FBC() {
 		Jrel_inf *= 1.7;
 	}
 	double tau_rel = bt / (1.0 + 0.0123 / cajsr);
-	if (tau_rel < 0.001) { // estaban a 0.005 //JORDI
+	if (tau_rel < 0.001) { 
 		tau_rel = 0.001;
 	}
 
-	//JORDI: podría ser... Jrelnp = Jrel_inf - (Jrel_inf - >>>Jrelnp<<<) * exp(-dt / tau_rel); ??
+	
 	Jrelnp = Jrel_inf - (Jrel_inf - Jrelnp) * exp(-dt / tau_rel);
 
 	double btp = 1.25 * bt;
@@ -1241,7 +1241,7 @@ void FBC() {
 		Jrel_infp *= 1.7;
 	}
 	double tau_relp = btp / (1.0 + 0.0123 / cajsr);
-	if (tau_relp < 0.001) { // estaban a 0.005 //JORDI
+	if (tau_relp < 0.001) { 
 		tau_relp = 0.001;
 	}
 	Jrelp = Jrel_infp - (Jrel_infp - Jrelp) * exp(-dt / tau_relp);
@@ -1366,22 +1366,22 @@ void dVdt_APD() {
 	vdot = (v - vo) / dt;
 
 	if (v > vmax)
-		vmax = v;         // JULIO
+		vmax = v;         
 
 	if (APD_flag == 0 && v > -40 && vdot < vdot_old) {
 		vdot_max = vdot_old;
 		t_vdot_max = t - dt;
 		APD_flag = 1;
-		APD30_flag = 1;    // JULIO
-		vmax = vrest;     // JULIO
+		APD30_flag = 1;    
+		vmax = vrest;     
 	}
 
-	if (APD30_flag == 1 && v < (vrest + (1.0 - 0.3) * (vmax - vrest))) { //v<0.9*vrest){ //JULIO
+	if (APD30_flag == 1 && v < (vrest + (1.0 - 0.3) * (vmax - vrest))) { //v<0.9*vrest){ 
 		APD30 = t - t_vdot_max;
 		APD30_flag = 0;
 	}
 
-	if (APD_flag == 1 && v < (vrest + (1.0 - 0.9) * (vmax - vrest))) { //v<0.9*vrest){ //JULIO
+	if (APD_flag == 1 && v < (vrest + (1.0 - 0.9) * (vmax - vrest))) { //v<0.9*vrest){ 
 		APD = t - t_vdot_max;
 		APD_flag = 0;
 	}
