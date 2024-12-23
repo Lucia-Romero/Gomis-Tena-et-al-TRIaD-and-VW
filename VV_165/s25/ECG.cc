@@ -23,7 +23,7 @@ void human::ecg_heading() {
 			"CV");
 	fclose(ecg_file);
 
-	//JORDI
+	
 	QTint_file = fopen(qtint_path, "w");
 	fprintf(QTint_file, "%-07s\t%-07s\n", "t", "QTint");
 	fclose(QTint_file);
