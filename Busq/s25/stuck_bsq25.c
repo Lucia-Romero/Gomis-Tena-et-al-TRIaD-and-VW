@@ -1132,7 +1132,7 @@ void FBC() {
 		Jrel_inf *= 1.7;
 	}
 	double tau_rel = bt / (1.0 + 0.0123 / cajsr);
-	if (tau_rel < 0.001) { // estaban a 0.005 
+	if (tau_rel < 0.001) { 
 		tau_rel = 0.001;
 	}
 
@@ -1146,7 +1146,7 @@ void FBC() {
 		Jrel_infp *= 1.7;
 	}
 	double tau_relp = btp / (1.0 + 0.0123 / cajsr);
-	if (tau_relp < 0.001) { // estaban a 0.005 
+	if (tau_relp < 0.001) { 
 		tau_relp = 0.001;
 	}
 	Jrelp = Jrel_infp - (Jrel_infp - Jrelp) * exp(-dt / tau_relp);
