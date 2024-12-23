@@ -10,7 +10,7 @@ void human::update(int x) {
 	rates(x);
 	gates(x);
 	currents(x);
-	fluxbuf(x); /*Lucia 18-July-2011: I changed the order. fluxbuf was the first */
+	fluxbuf(x); 
 	voltage(x);
 	dvdt(x);
 	concentrations(x);
