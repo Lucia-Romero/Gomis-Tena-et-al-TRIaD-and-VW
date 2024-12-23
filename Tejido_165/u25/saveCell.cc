@@ -67,17 +67,17 @@ void humandata::saveCell() {
 			fcafp, 
 			fcasp, 
 
-			I_IKr    ,						/* Lucia 18-July-2011: To include IKr Fink formulation */
-			C3_IKr   ,						/* Lucia 18-July-2011: To include IKr Fink formulation */
-			C2_IKr   ,						/* Lucia 18-July-2011: To include IKr Fink formulation */
-			O_IKr    ,						/* Lucia 18-July-2011: To include IKr Fink formulation */									
-			C1_IKr   , 						/* Lucia 18-July-2011: To include IKr Fink formulation */									
+			I_IKr    ,						
+			C3_IKr   ,						
+			C2_IKr   ,						
+			O_IKr    ,															
+			C1_IKr   , 															
 
-			I_IKr_D  ,						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-			C3_IKr_D ,						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-			C2_IKr_D ,						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-			O_IKr_D  ,						/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
-			C1_IKr_D ,	 					/* Lucia 2-August-2011: To include drug in IKr Fink formulation */
+			I_IKr_D  ,						
+			C3_IKr_D ,						
+			C2_IKr_D ,						
+			O_IKr_D  ,						
+			C1_IKr_D ,	 					
 			
 			vold, 
 			vdot,
