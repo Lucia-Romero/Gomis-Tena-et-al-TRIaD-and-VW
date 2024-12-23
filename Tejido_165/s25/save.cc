@@ -112,7 +112,7 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(one); // JORDI ADD dt to t
+		fclose(one); 
 	}
 //else if (strandlength>=5 && here<=0.2 && there>0.2)
 	else if (strandlength >= 5 && here <= 0.18 && there > 0.18) { 
@@ -124,7 +124,7 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(two); // JORDI ADD dt to t
+		fclose(two); 
 	}
 //else if (strandlength>=5 && here<=0.4 && there>0.4)
 	else if (strandlength >= 5 && here <= 0.5 && there > 0.5) {	
@@ -136,7 +136,7 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(three); // JORDI ADD dt to t
+		fclose(three); 
 	}
 //else if (strandlength>=5 && here<=0.6 && there>0.6)
 	else if (strandlength >= 5 && here <= 0.82 && there > 0.82) { 
@@ -148,7 +148,7 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(four); // JORDI ADD dt to t
+		fclose(four); 
 	}
 
 	else if (strandlength >= 5 && here <= 0.99 && there > 0.99) { 
@@ -160,7 +160,7 @@ void human::save(int x, int strandlength) {
 				JdiffK, Jleak, INa, INaL, Ito, ICaL, ICaNa, ICaK, IKr, IKs, IK1,
 				INaCa_i, INaCa_ss, INaK, INab, IKb, IpCa, ICab, Ist, dt,
 				p->APD90, p->APD60, p->APD50, p->APD30);
-		fclose(five); // JORDI ADD dt to t
+		fclose(five); 
 	}
 
 }
